@@ -6,6 +6,8 @@ public class ArrayAlumnos {
         MetodosArrayAlumnos alumnos=new MetodosArrayAlumnos();
         alumnos.cargarArray();
         alumnos.visualizar();
+        alumnos.buscarNomeAlumno();
+        alumnos.busqueda();
     }
     
 }
