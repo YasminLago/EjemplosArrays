@@ -1,41 +1,68 @@
 package arrayalumnos;
 //Yasmin
+
 import java.util.Scanner;
 
 public class MetodosArrayAlumnos {
-    int numElementos=pedirNumElementos();
-    String[]nomes=new String[numElementos];
-    int[]notas=new int[numElementos];
-    
-    public int pedirNumElementos(){
-        Scanner el=new Scanner(System.in);
+
+    int numElementos = pedirNumElementos();
+    String[] nomes = new String[numElementos];
+    int[] notas = new int[numElementos];
+
+    public int pedirNumElementos() {
+        Scanner el = new Scanner(System.in);
         System.out.println("Introduce el numero de elementos: ");
-        numElementos=el.nextInt(); 
+        numElementos = el.nextInt();
         return numElementos;
-    } 
-    public String pedirNome(){
-        Scanner nom=new Scanner(System.in);
+    }
+
+    public String pedirNome() {
+        Scanner nom = new Scanner(System.in);
         System.out.println("Introduce un nome: ");
-        String nome=nom.next();
+        String nome = nom.next();
         return nome;
     }
-    public int pedirNota(){
-        Scanner nt=new Scanner(System.in);
+
+    public int pedirNota() {
+        Scanner nt = new Scanner(System.in);
         System.out.println("Introduce la nota: ");
-        int nota=nt.nextInt();
+        int nota = nt.nextInt();
         return nota;
     }
-    public void cargarArray(){
-        for(int i=0;i<nomes.length;i++){
-            nomes[i]=pedirNome();
-            notas[i]=pedirNota();
+
+    public void cargarArray() {
+        for (int i = 0; i < nomes.length; i++) {
+            nomes[i] = pedirNome();
+            notas[i] = pedirNota();
         }
     }
-    public void visualizar(){
-        for(int i=0;i<nomes.length;i++){
-            System.out.println("Nomes ["+i+"]="+nomes[i]);
-            System.out.println("Notas ["+i+"]="+notas[i]);
+
+    public void visualizar() {
+        for (int i = 0; i < nomes.length; i++) {
+            System.out.println("Nomes [" + i + "]=" + nomes[i]);
+            System.out.println("Notas [" + i + "]=" + notas[i]);
         }
     }
-    
+
+    public String buscarNomeAlumno() {
+        Scanner nom = new Scanner(System.in);
+        System.out.println("Introduce nome a buscar: ");
+        String nome = nom.next();
+        return nome;
+    }
+
+    public int busqueda() {
+        int i=0;
+            if (nomes[i].equalsIgnoreCase(this.buscarNomeAlumno())) {
+                return this.notas[i];
+            }else {
+               System.out.println("Non se encontra o nome");}
+        return 0;
+       
+        
+            
+  
+    }
+        
 }
+    
