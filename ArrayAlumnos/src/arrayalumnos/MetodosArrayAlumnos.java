@@ -1,8 +1,6 @@
 package arrayalumnos;
 //Yasmin
-
 import java.util.Scanner;
-
 public class MetodosArrayAlumnos {
 
     int numElementos = pedirNumElementos();
@@ -31,7 +29,7 @@ public class MetodosArrayAlumnos {
     }
 
     public void cargarArray() {
-        for (int i = 0; i < nomes.length; i++) {
+        for (int i = 0; i < nomes.length; i++) { //nomes.length da o tamaño do array
             nomes[i] = pedirNome();
             notas[i] = pedirNota();
         }
@@ -44,25 +42,44 @@ public class MetodosArrayAlumnos {
         }
     }
 
-    public String buscarNomeAlumno() {
-        Scanner nom = new Scanner(System.in);
-        System.out.println("Introduce nome a buscar: ");
-        String nome = nom.next();
-        return nome;
-    }
+    /*public String consultarNota() {
+        String nomBus=JOptionPane.showInputDialog(null, this, numElementos)
+        boolean atopado=false;//non se atopou
+ for(int i=0;i<nomes.length;i++){
+     if((nomes[i].compareToIgnoreCase(nomBus)==0)){
+         atopado=true;
+         
+     }
+ }*/
+    
 
-    public int busqueda() {
-        int i=0;
-            if (nomes[i].equalsIgnoreCase(this.buscarNomeAlumno())) {
-                return this.notas[i];
+    public void busqueda() {
+        String consultaNota=pedirNome();
+        for(int i=0;i<numElementos;i++){
+            if (consultaNota.equalsIgnoreCase(nomes[i])) {
+                System.out.println("Nome: "+nomes[i]+" Nota: "+notas[i]);
             }else {
                System.out.println("Non se encontra o nome");}
-        return 0;
-       
         
-            
-  
     }
-        
+       
+    }
+    public void ordenacion(){
+        int aux;
+        String aux2;
+        for(int i=0;i<numElementos-1;i++){
+            for(int j=i+1;j<numElementos;j++){
+                if(notas[i]>notas[j]){
+                    aux=notas[i];
+                    notas[i]=notas[j];
+                    notas[j]=aux;
+                    
+                    aux2=nomes[i];
+                    nomes[i]=nomes[j];
+                    nomes[j]=aux2;
+                }     
+            }
+        }
+    }
+
 }
-    
